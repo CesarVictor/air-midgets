@@ -1,62 +1,20 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
-</head>
-  <body>
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Messages</a>
-              </li>
-              <li class="nav-item dropdown">
-                <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                </div>
-              </li>
-          </ul>
-        </div>
+<div class="container">
+  <div class="main-image">
+    <img class="midget-picture" src="https://fr.web.img6.acsta.net/pictures/20/03/02/15/47/5009987.jpg" />
+  </div>
+  <div class="description-price">
+    <div class="description">
+      <h3><%= @midget.name %>, specialité: <%= @midget.speciality %></h3>
+      <p><%= @midget.city %></p>
+      <p><%= @midget.description %></p>
+    </div>
+    <div class="details">
+      <div class="price">
+        <p><%= @midget.price %>€/jour</p>
+      </div>
+      <div class="button">
+        <%= link_to 'Make a reservation', new_reservation_path(midget_id: @midget.id) %>
       </div>
     </div>
-      <div class="container">
-        <div class="main-image">
-          <img class="midget-picture" src="https://fr.web.img6.acsta.net/pictures/20/03/02/15/47/5009987.jpg" />
-      </div>
-      <div class="description-price">
-        <div class="description">
-          <h3><%= @midget.name %>, specialité: <%= @midget.speciality %></h3>
-          <p><%= @midget.city %></p>
-          <p><%= @midget.description %></p>
-        </div>
-        <div class="details">
-          <div class="price">
-            <p><%= @midget.price %>€/jour</p>
-          </div>
-          <div class="button">
-           <a href="">Make a reservation</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
-
-
-<%= link_to 'Make a reservation', new_reservation_path(midget_id: @midget.id) %>
-
+  </div>
+</div>
