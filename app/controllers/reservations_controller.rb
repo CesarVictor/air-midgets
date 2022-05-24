@@ -2,7 +2,7 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[update show edit destroy]
 
   def new
-    @midget = Midget.find(params[:midget])
+    @midget = Midget.find(params[:midget_id])
     @reservation = Reservation.new
   end
 
