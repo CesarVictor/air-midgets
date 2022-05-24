@@ -6,10 +6,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-10.times do
-  User.create(name: "Jean-Mouloud", email: "mouloudfc@gmail.com", phone_number: "078765676", description: "Bonjour je loue des nains pour des spectacles",)
-  User.create(name: "Kojack", email: "jyffc@gmail.com", phone_number: "078765676", description: "Bonjour je loue des nains pour des spectacles",)
-  User.create(name: "Patruche", email: "kguuboinouc@gmail.com", phone_number: "078765676", description: "Bonjour je loue des nains pour des spectacles",)
-  User.create(name: "Maurisson", email: "vuyguyvyj@gmail.com", phone_number: "078765676", description: "Bonjour je loue des nains pour des spectacles",)
-  User.create(name: "Kroky", email: "jvjbzfeigiuy@gmail.com", phone_number: "078765676", description: "Bonjour je loue des nains pour des spectacles",)
+  User.create!(name: "pouix", email: "test@toto.com", password: "secret", phone_number: "987897", description: "SFDKJSHFKCJDS", profile_picture: "hgf")
+  User.create!(name: "pouix2", email: "test2@toto.com", password: "secret", phone_number: "987897", description: "SFDKJSHFKCJDS", profile_picture: "hgf")
+  User.create!(name: "pouix3", email: "test3@toto.com", password: "secret", phone_number: "987897", description: "SFDKJSHFKCJDS", profile_picture: "hgf")
+
+
+
+3.times do
+  Midget.create!(name: 'bob', speciality: 'flyer', price: '10', description: 'flying midget', city: 'bordeaux', user_id: User.last.id)
 end

@@ -38,6 +38,9 @@ group :development, :test do
   gem 'pry-rails'
   gem 'dotenv-rails'
 
+  #gem devide for authentication
+  gem 'devise'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
