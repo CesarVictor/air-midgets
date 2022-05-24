@@ -1,8 +1,12 @@
 class MidgetsController < ApplicationController
-  before_action :set_midget, only[:edit, :update, :show, :destroy]
+  before_action :set_midget, only: [:edit, :update, :show, :destroy]
+
+  def index
+    @midgets = Midget.all
+  end
 
   def new
-    @midgets = Midget.new
+    @midget = Midget.new
   end
 
   def create
@@ -46,6 +50,4 @@ class MidgetsController < ApplicationController
   def set_midget
     @midget = Midget.find(params[:id])
   end
-
-
 end

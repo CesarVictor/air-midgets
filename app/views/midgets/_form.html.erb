@@ -1,0 +1,21 @@
+<%= simple_form_for(@midget) do |f| %>
+  <form class="row g-3">
+     <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :speciality %>
+      <%= f.text_area :speciality, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :price %>
+      <%= f.text_field :price, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :city %>
+      <%= f.text_field :city, class: 'form-control' %>
+    </div>
+    <%= f.submit class: 'btn btn-primary' %>
+  </form>
+<% end %>
