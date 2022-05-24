@@ -1,0 +1,23 @@
+.midget-picture {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.container{
+  display: flex;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 10px;
+}
+
+.description h3 p {
+  text-align: center;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
