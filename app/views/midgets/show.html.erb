@@ -1,3 +1,21 @@
-<h1><%= @midget.name %></h1>
-
-<%= link_to 'Make a reservation', new_reservation_path(midget_id: @midget.id) %>
+<div class="container">
+  <div class="main-image">
+    <img class="midget-picture" src="https://fr.web.img6.acsta.net/pictures/20/03/02/15/47/5009987.jpg" />
+  </div>
+  <div class="description-price">
+    <div class="description">
+      <h3><%= @midget.name %></h3>
+      <p>specialité: <%= @midget.speciality %></p>
+      <p><%= @midget.city %></p>
+      <p><%= @midget.description %></p>
+    </div>
+    <div class="details">
+      <div class="price">
+        <p><%= @midget.price %>€/jour</p>
+      </div>
+      <div class="button">
+        <%= link_to 'Make a reservation', new_reservation_path(midget_id: @midget.id) %>
+      </div>
+    </div>
+  </div>
+</div>

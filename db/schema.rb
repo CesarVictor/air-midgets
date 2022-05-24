@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_05_24_120743) do
     t.date "end_date"
     t.integer "price"
     t.integer "total"
-    t.boolean "status"
+    t.boolean "status", null: false
     t.bigint "midget_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

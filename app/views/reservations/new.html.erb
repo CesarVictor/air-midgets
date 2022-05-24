@@ -2,7 +2,10 @@
 
   <%= f.input :start_date, label: 'From', error: 'This field is mandatory, please specify one' %>
   <%= f.input :end_date, label: 'To', error: 'This field is mandatory, please specify one' %>
+  <%= f.hidden_field :midget_id, value: @midget.id %>
   <%= f.button :submit %>
 <% end %>
 
 <p>Price per day: <%= @midget.price %>€</p>
+
+<%= link_to 'Back', midget_path(@midget.id) %>

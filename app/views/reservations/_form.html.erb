@@ -1,9 +1,0 @@
-<%= simple_form_for reservation do |f| %>
-  <% f.hidden :midget_id, midget.id %>
-  <%= f.input :start_date, label: 'From', error: 'This field is mandatory, please specify one' %>
-  <%= f.input :end_date, label: 'To', error: 'This field is mandatory, please specify one' %>
-  <%= f.button :submit %>
-<% end %>
-
-<p>Price per day: <%= reservation.midget.price %>€</p>
-<p>Total: <%= (reservation.midget.price * (:end_date - :start_date)) %>€</p>

@@ -1,0 +1,35 @@
+.midget-picture {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.container{
+  display: flex;
+  padding-left: 100px;
+  padding-right: 100px;
+  margin-top: 10px;
+  justify-content: space-around;
+}
+
+.description h3 {
+  text-align: center;
+}
+
+.description p {
+  text-align: center;
+}
+
+.details {
+  display: block;
+}
+
+.description-price {
+  display: block;
+  margin-left: 30px;
+}
+
+.price p {
+  margin-bottom: 0;
+}
