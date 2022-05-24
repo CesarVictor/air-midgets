@@ -21,7 +21,6 @@ class MidgetsController < ApplicationController
   def show
   end
 
-
   def edit
   end
 
@@ -44,7 +43,7 @@ class MidgetsController < ApplicationController
   private
 
   def midget_params
-    params.require(:midget).permit(:name, :speciality, :price, :description, :city)
+    params.require(:midgets).permit(:name, :speciality, :price, :description, :city)
   end
 
   def set_midget
