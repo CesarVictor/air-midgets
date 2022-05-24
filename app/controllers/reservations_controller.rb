@@ -7,8 +7,16 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @midget = Midget.find(params[:reservation][:midget_id])
     @reservation = Reservation.new(reservation_params)
-    if @reservation.save
+
+    @reservation.price = @midget.price
+
+    @reservation.total = @midget.price * ((@reservation.end_date - @reservation.start_date).to_i + 1)
+    @reservation.midget = @midget
+    @reservation.user = current_user
+    if @reservation.save!
+
       redirect_to reservation_path(@reservation)
     else
       render 'new'
