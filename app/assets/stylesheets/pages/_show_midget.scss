@@ -10,14 +10,26 @@
   padding-left: 100px;
   padding-right: 100px;
   margin-top: 10px;
+  justify-content: space-around;
 }
 
-.description h3 p {
+.description h3 {
+  text-align: center;
+}
+
+.description p {
   text-align: center;
 }
 
 .details {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: block;
+}
+
+.description-price {
+  display: block;
+  margin-left: 30px;
+}
+
+.price p {
+  margin-bottom: 0;
 }
