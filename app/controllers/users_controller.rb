@@ -10,10 +10,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(users_params)
     if @user.save
-      flash[:success] = "Account successfully created"
       redirect_to @user
     else
-      flash[:error] = "Something went wrong"
       render 'new'
     end
   end
