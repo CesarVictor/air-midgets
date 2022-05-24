@@ -1,8 +1,12 @@
 class MidgetsController < ApplicationController
-  before_action :set_midget, only: %i[edit update show destroy]
+  before_action :set_midget, only: [:edit, :update, :show, :destroy]
+
+  def index
+    @midgets = Midget.all
+  end
 
   def new
-    @midgets = Midget.new
+    @midget = Midget.new
   end
 
   def create
@@ -39,7 +43,7 @@ class MidgetsController < ApplicationController
   private
 
   def midget_params
-    params.require(:midget).permit(:name, :speciality, :price, :description, :city)
+    params.require(:midgets).permit(:name, :speciality, :price, :description, :city)
   end
 
   def set_midget
