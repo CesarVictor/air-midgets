@@ -11,25 +11,37 @@
   padding-right: 100px;
   margin-top: 30px;
   height: 100vh;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
-.description h3 p {
+.description h3 {
   text-align: center;
   text-decoration: none;
   color: black;
   width: 400px;
 }
 
-.details {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  text-decoration: solid;
-  width: 400px;
-}
-
 a {
   color: black;
   text-decoration: none;
+
+  font-size: 80px;
+}
+
+.description p {
+  text-align: center;
+  font-size: 26px;
+}
+
+.details {
+  display: block;
+}
+
+.description-price {
+  display: block;
+  margin-left: 30px;
+}
+
+.price p {
+  margin-bottom: 0;
 }

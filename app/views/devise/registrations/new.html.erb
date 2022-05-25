@@ -1,0 +1,42 @@
+<h2 class="text-center">Sign up</h2>
+<div class="container-sm justify-content-center">
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Your username" }%>
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Your email" }%>
+    <%= f.input :password,
+                required: true,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :phone_number,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "Your phone number" }%>
+    <%= f.input :description,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "Describe yourself in a few words" }%>
+    <%= f.input :profile_picture, as: :file,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "Upload your profile picture !" }%>
+  </div>
+
+  <div class="form-actions">
+   <div class="btn btn-success"><%= f.button :submit, "Sign up" %> </div>
+  </div>
+<% end %>
+</div>
+
+<%= render "devise/shared/links" %>

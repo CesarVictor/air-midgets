@@ -1,14 +1,27 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[update show edit destroy]
 
+  def index
+    @reservations = Reservation.where(user_id: current_user.id)
+  end
+
+
   def new
     @midget = Midget.find(params[:midget_id])
     @reservation = Reservation.new
   end
 
   def create
+    @midget = Midget.find(params[:reservation][:midget_id])
     @reservation = Reservation.new(reservation_params)
-    if @reservation.save
+
+    @reservation.price = @midget.price
+
+    @reservation.total = @midget.price * ((@reservation.end_date - @reservation.start_date).to_i + 1)
+    @reservation.midget = @midget
+    @reservation.user = current_user
+    if @reservation.save!
+
       redirect_to reservation_path(@reservation)
     else
       render 'new'
