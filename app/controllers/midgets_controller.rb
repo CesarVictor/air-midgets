@@ -1,5 +1,6 @@
 class MidgetsController < ApplicationController
   before_action :set_midget, only: [:edit, :update, :show, :destroy]
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @midgets = Midget.all
@@ -11,6 +12,7 @@ class MidgetsController < ApplicationController
 
   def create
     @midget = Midget.new(midget_params)
+    @midget.user_id = current_user.id
     if @midget.save
       redirect_to midget_path(@midget)
     else
