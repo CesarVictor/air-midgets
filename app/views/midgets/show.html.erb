@@ -13,9 +13,8 @@
       <div class="price">
         <p><%= @midget.price %>€/jour</p>
       </div>
-        <%= link_to new_reservation_path(midget_id: @midget.id) do%>
-        <button type="button" class="btn btn-outline-secondary">New reservation</button>
-        <% end %>
+        <h3>Make a reservation</h3>
+        <%= render partial: 'reservations/new', locals: { midget: @midget, reservation: @reservation } %>
     </div>
   </div>
 </div>
