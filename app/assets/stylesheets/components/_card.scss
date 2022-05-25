@@ -6,23 +6,26 @@
   border-radius: 5px;
   width: 200px;
   padding-right: 15px;
+  height: fit-content;
 }
 
 .card-trip > img {
+  margin-top: 30px;
   height: 200px;
   width: 100%;
   object-fit: cover;
 }
 
 .card-trip h2 {
-  font-size: 16px;
+  font-size: 25px;
   font-weight: bold;
   margin: 0;
   color: black;
+  text-decoration: solid;
 }
 
 .card-trip p {
-  font-size: 12px;
+  font-size: 15px;
   opacity: .7;
   margin: 0;
 }
@@ -43,4 +46,9 @@
   top: -20px;
   width: 40px;
   text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

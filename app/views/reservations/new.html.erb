@@ -1,10 +1,16 @@
-<%= simple_form_for @reservation do |f| %>
+<div class="container">
 
-  <%= f.input :start_date, label: 'From', error: 'This field is mandatory, please specify one' %>
-  <%= f.input :end_date, label: 'To', error: 'This field is mandatory, please specify one' %>
-  <%= f.button :submit %>
-<% end %>
+  <%= simple_form_for @reservation do |f| %>
 
-<p>Price per day: <%= @midget.price %>€</p>
+    <%= f.input :start_date, label: 'From', error: 'This field is mandatory, please specify one' %>
+    <%= f.input :end_date, label: 'To', error: 'This field is mandatory, please specify one' %>
+    <%= f.button :submit %>
+  <% end %>
 
-<%= link_to 'Back', midget_path(@midget.id) %>
+  <p>Price per day: <%= @midget.price %>€</p>
+
+  <%= link_to midget_path(@midget.id) do %>
+  <button type="button" class="btn btn-outline-secondary">Back</button>
+  <% end %>
+
+</div>
