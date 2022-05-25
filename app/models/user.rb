@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :midgets, dependent: :destroy
   has_many :reservations, dependent: :destroy
+  has_one_attached :photo
 end

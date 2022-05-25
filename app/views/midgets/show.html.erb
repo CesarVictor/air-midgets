@@ -13,9 +13,9 @@
       <div class="price">
         <p><%= @midget.price %>€/jour</p>
       </div>
-      <div class="button">
-          <%= link_to 'Make a reservation', new_reservation_path(midget_id: @midget.id) %>
-      </div>
+        <%= link_to new_reservation_path(midget_id: @midget.id) do%>
+        <button type="button" class="btn btn-outline-secondary">New reservation</button>
+        <% end %>
     </div>
   </div>
 </div>
