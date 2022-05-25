@@ -1,14 +1,15 @@
 
-    <div class="row">
-      <div class="m-5 col-5">
-        <h2><p><%= @user.name %></p></h2>
-        <img class="picture"src="https://kitt.lewagon.com/placeholder/users/krokrob" />
-        <p>My email: <%= @user.email %></p>
-        <p> My phone_number: <%= @user.phone_number %> </p>
-        <p> My bio: <%= @user.description %></p>
-      </div>
-      <div class="container d-flex m-5 col-7">
-      <h3>Your midgets</h3>
+<div>
+  <div class="m-5 col-5">
+    <h2><p><%= @user.name %></p></h2>
+    <img class="picture"src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+    <p>My email: <%= @user.email %></p>
+    <p> My phone_number: <%= @user.phone_number %> </p>
+    <p> My bio: <%= @user.description %></p>
+  </div>
+</div>
+  <h3>Your midgets</h3>
+<div class="midgets d-inline-flex">
         <% Midget.where(user_id: current_user.id).each do |midget| %>
           <div class="card-trip">
             <img src="https://fr.web.img6.acsta.net/pictures/20/03/02/15/47/5009987.jpg" />
@@ -22,5 +23,5 @@
             </div>
           </div>
         <% end %>
-      </div>
-    </div>
+  </div>
+</div>
