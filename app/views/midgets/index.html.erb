@@ -2,17 +2,19 @@
   <div class="row">
     <div class="row row-cols-4">
       <% @midgets.each do |midget| %>
-        <div class="card-trip">
-          <img src="https://fr.web.img6.acsta.net/pictures/20/03/02/15/47/5009987.jpg" />
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= link_to midget.name, midget %></h2>
-              <p><%= link_to midget.speciality, midget %></p>
+          <div class="card-trip">
+          <%= image_tag "https://fr.web.img6.acsta.net/pictures/20/03/02/15/47/5009987.jpg" %>
+          <%= link_to midget_path(midget) do %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= midget.name %></h2>
+                <p><%= midget.speciality %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= midget.price %></h2>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
             </div>
-            <h2 class="card-trip-pricing"><%= link_to midget.price, midget %></h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+          <% end %>
           </div>
-        </div>
       <% end %>
       <%= link_to new_midget_path do %>
         <button type="button" class="btn btn-outline-secondary">New</button>
