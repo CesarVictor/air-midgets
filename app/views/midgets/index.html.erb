@@ -3,7 +3,7 @@
     <div class="row row-cols-4">
       <% @midgets.each do |midget| %>
         <div class="card-trip">
-          <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.ctvnews.ca%2Flifestyle%2Fnot-mascots-or-buffoons-mexico-s-dwarf-wrestlers-in-the-spotlight-1.4115351&psig=AOvVaw1Pv4kUF9KVkqLRz65FDKX3&ust=1653482837221000&source=images&cd=vfe&ved=0CAkQjRxqFwoTCIDn3tyV-PcCFQAAAAAdAAAAABAD" />
+          <img src="https://fr.web.img6.acsta.net/pictures/20/03/02/15/47/5009987.jpg" />
           <div class="card-trip-infos">
             <div>
               <h2><%= link_to midget.name, midget %></h2>
@@ -15,7 +15,7 @@
         </div>
       <% end %>
       <%= link_to new_midget_path do %>
-        <i class="fa fa-history"></i> New
+        <button type="button" class="btn btn-outline-secondary">New</button>
       <% end %>
     </div>
   </div>
