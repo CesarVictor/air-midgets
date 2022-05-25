@@ -10,9 +10,7 @@ User.create!(name: "Admin", email: "admin@airmidget.com", password: "secret", ph
 
 
 
-3.times do
-  Midget.create!(name: 'bob', speciality: 'flyer', price: '10', description: 'flying midget', city: 'bordeaux', user_id: User.last.id)
-end
+
 Midget.create!(name: "Passe-Partout", speciality: "KeyHolder", price: "250", description: "The very best door opener", city: "La Rochelle", user_id: User.last.id)
 Midget.create!(name: "Flying Bob", speciality: "Flyer", price: "200", description: "I believe i can fly", city: "Paris", user_id: User.last.id)
 Midget.create!(name: "The Undertaker", speciality: "Wrestler", price: "290", description: "WBA/WBC defending champ", city: "Las Vegas", user_id: User.last.id)
