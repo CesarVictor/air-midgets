@@ -24,6 +24,8 @@ gem 'dotenv-rails', groups: [:development, :test]
 # gem 'bcrypt', '~> 3.1.7'
 gem 'cloudinary', '~> 1.16.0'
 
+gem 'devise'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
