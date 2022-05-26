@@ -4,6 +4,7 @@ class MidgetsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    @midgets = policy_scope(Midget).order(created_at: :desc)
 
     @markers = @midgets.geocoded.map do |midget|
       {
@@ -17,11 +18,13 @@ class MidgetsController < ApplicationController
 
   def new
     @midget = Midget.new
+    authorize @midget
   end
 
   def create
     @midget = Midget.new(midget_params)
     @midget.user_id = current_user.id
+    authorize @midget
     if @midget.save
       redirect_to midget_path(@midget)
     else
@@ -30,7 +33,7 @@ class MidgetsController < ApplicationController
   end
 
   def show
-    @reservation = Reservation.new
+    authorize @midget
   end
 
   def edit
@@ -45,6 +48,8 @@ class MidgetsController < ApplicationController
   end
 
   def destroy
+    authorize @midget
+
     if @midget.destroy
       redirect_to midgets_path
     else
