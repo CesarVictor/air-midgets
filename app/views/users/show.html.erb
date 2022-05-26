@@ -21,7 +21,7 @@
     <%= link_to new_midget_path do %>
       <button type="button" class="btn btn-outline-secondary ms-5">Add a new midget</button>
     <% end %>
-    <%= link_to reservations_path do %>
+    <%= link_to midget_reservations_path(current_user.midgets) do %>
       <button type="button" class="btn btn-outline-secondary ms-3">Check my reservations</button>
     <% end %>
 
