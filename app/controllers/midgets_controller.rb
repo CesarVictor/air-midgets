@@ -4,7 +4,7 @@ class MidgetsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @midgets = policy_scope(Midget).order(created_at: :desc)
+    # @midgets = policy_scope(Midget).order(created_at: :desc)
 
     @markers = @midgets.geocoded.map do |midget|
       {
@@ -72,9 +72,9 @@ class MidgetsController < ApplicationController
 
     if params[:query].present?
       sql_query = "name ILIKE :query OR speciality ILIKE :query OR city ILIKE :query"
-      @midgets = Midget.where(sql_query, query: "%#{params[:query]}%")
+      @midgets = policy_scope(Midget).where(sql_query, query: "%#{params[:query]}%")
     else
-      @midgets = Midget.all
+      @midgets = policy_scope(Midget).order(created_at: :desc)
     end
   end
 end
