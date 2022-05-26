@@ -19,15 +19,17 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-gem 'dotenv-rails', groups: [:development, :test]
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'cloudinary', '~> 1.16.0'
+#pg search
+gem 'pg_search', '~> 2.3.0'
 
 
 gem "geocoder"
 
 gem 'devise'
+
 
 
 
@@ -42,9 +44,9 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem 'simple_form', github: 'heartcombo/simple_form'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'dotenv-rails'
 
   #gem devide for authentication
   gem 'devise'

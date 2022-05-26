@@ -1,5 +1,6 @@
 class MidgetsController < ApplicationController
   before_action :set_midget, only: [:edit, :update, :show, :destroy]
+  before_action :set_index, only: [:index]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -59,10 +60,20 @@ class MidgetsController < ApplicationController
   private
 
   def midget_params
-    params.require(:midget).permit(:name, :speciality, :price, :description, :city)
+    params.require(:midget).permit(:name, :speciality, :price, :description, :city, :photo)
   end
 
   def set_midget
     @midget = Midget.find(params[:id])
+  end
+
+  def set_index
+
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR speciality ILIKE :query OR city ILIKE :query"
+      @midgets = Midget.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @midgets = Midget.all
+    end
   end
 end

@@ -15,9 +15,7 @@ class ReservationsController < ApplicationController
   def create
     @midget = Midget.find(params[:reservation][:midget_id])
     @reservation = Reservation.new(reservation_params)
-
     @reservation.price = @midget.price
-
     @reservation.total = @midget.price * ((@reservation.end_date - @reservation.start_date).to_i + 1)
     @reservation.midget = @midget
     @reservation.user = current_user

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="main-image">
-    <img class="midget-picture" src="https://fr.web.img6.acsta.net/pictures/20/03/02/15/47/5009987.jpg" />
+    <%= cl_image_tag @midget.photo.key, height: 200, width: 200, crop: :fill %>
   </div>
   <div class="description-price">
     <div class="description">
@@ -19,6 +19,8 @@
         <%= link_to new_reservation_path(midget_id: @midget.id) do%>
         <button type="button" class="btn btn-outline-secondary">New reservation</button>
         <% end %>
+        <h3>Make a reservation</h3>
+        <%= render partial: 'reservations/new', locals: { midget: @midget, reservation: @reservation } %>
     </div>
   </div>
 </div>
