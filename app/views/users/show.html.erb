@@ -1,29 +1,45 @@
 
+<h1 class="m-5">My profile</h1>
 <div>
-  <div class="m-5 col-5">
-    <h2><p><%= @user.name %></p></h2>
-    <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
-    <p>My email: <%= @user.email %></p>
-    <p> My phone_number: <%= @user.phone_number %> </p>
-    <p> My bio: <%= @user.description %></p>
+  <div class="m-5 d-flex justify-content-between">
+    <div>
+      <h2><p><%= @user.name %></p></h2>
+      <%= cl_image_tag @user.photo.key, height: 400, width: 600, crop: :fill, class: "rounded" %>
+    </div>
+    <div class="m-5">
+      <p class="mt-3">My email: <%= @user.email %></p>
+      <p class="mt-3"> My phone_number: <%= @user.phone_number %> </p>
+      <p class="mt-3"> My bio: <%= @user.description %></p>
+      <% income = 0 %>
+      <% current_user.reservations.each do |reservation| %>
+        <% income += reservation.total %>
+      <% end %>
+      <h6 class="mt-5">My future income: <%= income%>€</h6>
+    </div>
   </div>
 </div>
-  <h3>Your midgets  <%= link_to new_midget_path do %>
-        <button type="button" class="btn btn-outline-secondary ms-3">Add new</button>
-      <% end %></h3>
-<div class="midgets d-inline-flex">
-        <% Midget.where(user_id: current_user.id).each do |midget| %>
-          <div class="card-trip">
-            <%= cl_image_tag midget.photo.key, height: 200, width: 200, crop: :fill %>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= midget.name %></h2>
-                <p><%= midget.speciality %></p>
-              </div>
-              <h2 class="card-trip-pricing"><%= link_to midget.price, midget %></h2>
-              <%= cl_image_tag midget.user.photo.key, height: 50, width: 50, crop: :fill, class: "card-trip-user avatar-bordered" %>
-            </div>
+    <%= link_to new_midget_path do %>
+      <button type="button" class="btn btn-outline-secondary ms-5">Add a new midget</button>
+    <% end %>
+    <%= link_to reservations_path do %>
+      <button type="button" class="btn btn-outline-secondary ms-3">Check my reservations</button>
+    <% end %>
+
+<h3 class="m-5">Your midgets</h3>
+
+<div class="midgets row justify-content-around">
+  <% Midget.where(user_id: current_user.id).each do |midget| %>
+    <div class="col-md-3 m-3">
+      <div class="card-trip" style="width: 18rem;">
+        <%= cl_image_tag midget.photo.key, height: 200, width: 200, crop: :fill, class: "text-center" %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= midget.name %></h2>
+            <p><%= midget.speciality %></p>
           </div>
-        <% end %>
-  </div>
+          <%= link_to 'Fire', midget_path(midget.id), method: :delete, class: "btn btn-outline-danger" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

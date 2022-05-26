@@ -1,6 +1,8 @@
+
 <div class="container">
   <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-    <h2>Flatpickr Demo</h2>
+    <h2>Reservation</h2>
+
 
     <%= simple_form_for :search, method: "get" do |f| %>
       <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
@@ -10,19 +12,8 @@
   </div>
 </div>
 
-
-  <%# <%= simple_form_for reservation do |f| %> %>
-
-  <%# <%= f.input start_date, as: :date, html5: true 'From', error: 'This field is mandatory, please specify one' %> %>
-    <%# <%= f.input :end_date, label: 'To', error: 'This field is mandatory, please specify one' %> %>
-    <%# <%= f.hidden_field :midget_id, value: @midget.id %> %>
-    <%# <%= f.button :submit %> %>
-  <%# <% end %> %>
-
   <p>Price per day: <%= @midget.price %>€</p>
 
   <%= link_to midget_path(@midget.id) do %>
   <button type="button" class="btn btn-outline-secondary">Back</button>
   <% end %>
-
-</div>

@@ -7,7 +7,7 @@
         <div class="col-md-4">
           <% midget = Midget.find(reservation.midget_id) %>
           <div class="card" style="width: 18rem;">
-            <img src="https://fr.web.img6.acsta.net/pictures/20/03/02/15/47/5009987.jpg" class="card-img-top" alt="midget picture">
+            <%= cl_image_tag midget.photo.key, height: 250, width: 250, crop: :fill, style: "width: 100%;" %>
             <div class="card-body">
               <h5 class="card-title">Your reservation details</h5>
               <p class="card-text"><%= midget.name %></p>
@@ -20,11 +20,13 @@
             </ul>
             <div class="card-body">
               <%= link_to 'Your midget bio', midget_path(midget) , class: "btn btn-success" %>
+              <% if policy(reservation).destroy? %>
+                <%= link_to "Delete my reservation", reservation_path(reservation, midget), class:"btn btn-warning", method: :delete, data: { confirm: "Are you sure?"}  %>
+              <% end %>
             </div>
           </div>
         </div>
       <% end %>
 
     </div>
-
 </div>

@@ -2,13 +2,14 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: %i[update show edit destroy]
 
   def index
-    @reservations = Reservation.where(user_id: current_user.id)
+    @reservations = policy_scope(Reservation).order(created_at: :desc)
   end
 
 
   def new
     @midget = Midget.find(params[:midget_id])
     @reservation = Reservation.new
+    authorize @reservation
   end
 
   def create
@@ -18,6 +19,7 @@ class ReservationsController < ApplicationController
     @reservation.total = @midget.price * ((@reservation.end_date - @reservation.start_date).to_i + 1)
     @reservation.midget = @midget
     @reservation.user = current_user
+    authorize @reservation
     if @reservation.save!
 
       redirect_to reservations_path
@@ -27,6 +29,7 @@ class ReservationsController < ApplicationController
   end
 
   def show
+    authorize @reservation
   end
 
   def edit
@@ -41,11 +44,11 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-
+    authorize @reservation
     if @reservation.destroy
-      redirect_to user_path(@reservation.user)
+      redirect_to reservations_path
     else
-      redirect_to user_reservation_path(@reservation)
+      redirect_to reservation_path(@reservation)
     end
   end
 
