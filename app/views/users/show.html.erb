@@ -1,6 +1,5 @@
 
 <h1 class="m-5">My profile</h1>
-
 <div>
   <div class="m-5 d-flex justify-content-between">
     <div>
@@ -8,9 +7,14 @@
       <%= cl_image_tag @user.photo.key, height: 400, width: 600, crop: :fill, class: "rounded" %>
     </div>
     <div class="m-5">
-      <p class="m-3">My email: <%= @user.email %></p>
-      <p class="m-3"> My phone_number: <%= @user.phone_number %> </p>
-      <p class="m-3"> My bio: <%= @user.description %></p>
+      <p class="mt-3">My email: <%= @user.email %></p>
+      <p class="mt-3"> My phone_number: <%= @user.phone_number %> </p>
+      <p class="mt-3"> My bio: <%= @user.description %></p>
+      <% income = 0 %>
+      <% current_user.reservations.each do |reservation| %>
+        <% income += reservation.total %>
+      <% end %>
+      <h6 class="mt-5">My future income: <%= income%>€</h6>
     </div>
   </div>
 </div>
