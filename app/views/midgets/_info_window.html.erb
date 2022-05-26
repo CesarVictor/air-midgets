@@ -1,7 +1,8 @@
-<div class="card" style="width: 9rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= midget.name %></h5>
-    <p class="card-text"><%= midget.price %>€/jour</p>
-    <%= link_to 'More infos', midget_path(midget), class: "btn btn-primary" %>
+<div class="card-product card-windw">
+  <%= cl_image_tag midget.photo.key, height: 300, width: 300, crop: :fill %>
+  <div class="card-product-infos">
+    <h2><%= midget.name %></h2>
+    <p><%= midget.description %></p>
+    <%= link_to 'More infos', midget_path(midget), class: "btn btn-primary mt-2" %>
   </div>
 </div>
