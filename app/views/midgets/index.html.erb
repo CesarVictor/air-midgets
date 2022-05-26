@@ -1,16 +1,16 @@
   <div class="row mx-5">
     <div class="col-12 col-md-7">
     <div class="row">
-    <div class="mt-5 mb-3 text-center ms-5 w-75">
-      <%= form_tag midgets_path, class: "d-flex", method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a midget"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+      <div class="mt-5 mb-3 text-center ms-5 w-75">
+        <%= form_tag midgets_path, class: "d-flex", method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a midget"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
       <% @midgets.each do |midget| %>
         <div class="col-12">
           <div class="card-product mx-5 my-3" style="position: relative;">
@@ -29,7 +29,7 @@
       <% end %>
     </div>
     </div>
-    <div class="col-12 col-md-5 mt-5">
+    <div class="col-12 col-md-5 mt-5" style="position: fixed; right: 30px;">
       <div style="width: 100%; height: 600px;"
         data-controller="mapbox"
         data-mapbox-markers-value="<%= @markers.to_json %>"

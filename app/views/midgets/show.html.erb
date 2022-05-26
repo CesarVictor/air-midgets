@@ -1,20 +1,18 @@
-<div class="container">
+<div class="container mt-5 d-flex justify-content-between align-items-center">
   <div class="main-image">
-    <%= cl_image_tag @midget.photo.key, height: 200, width: 200, crop: :fill %>
+    <%= cl_image_tag @midget.photo.key, height: 400, width: 400, crop: :fill, class: "rounded" %>
   </div>
-  <div class="description-price">
+
     <div class="description">
-      <h3><%= @midget.name %></h3>
-      <p>specialité: <%= @midget.speciality %></p>
-      <p><%= @midget.city %></p>
-      <p><%= @midget.description %></p>
+      <h3 class="mb-3"><%= @midget.name %></h3>
+      <p class="mb-3">Speciality: <%= @midget.speciality %></p>
+      <p class="mb-3">City: <%= @midget.city %></p>
+      <p class="mb-3">Description: <%= @midget.description %></p>
+      <p class="mb-3">Tarif: <%= @midget.price %>€/jour</p>
     </div>
     <div class="details">
-      <div class="price">
-        <p><%= @midget.price %>€/jour</p>
-      </div>
         <h3>Make a reservation</h3>
         <%= render partial: 'reservations/new', locals: { midget: @midget, reservation: @reservation } %>
     </div>
-  </div>
+
 </div>
