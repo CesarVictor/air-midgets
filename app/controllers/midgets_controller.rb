@@ -34,6 +34,7 @@ class MidgetsController < ApplicationController
 
   def show
     authorize @midget
+    @reservation = Reservation.new
   end
 
   def edit
