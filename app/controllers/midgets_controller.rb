@@ -4,6 +4,15 @@ class MidgetsController < ApplicationController
 
   def index
     @midgets = Midget.all
+
+    @markers = @midgets.geocoded.map do |midget|
+      {
+        lat: midget.latitude,
+        lng: midget.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { midget: midget }),
+        image_url: helpers.asset_url("https://mon-nain-de-jardin.com/wp-content/uploads/2021/06/cropped-cropped-Nain-logo-sans-bg.png")
+      }
+    end
   end
 
   def new
@@ -45,7 +54,7 @@ class MidgetsController < ApplicationController
   private
 
   def midget_params
-    params.require(:midgets).permit(:name, :speciality, :price, :description, :city, :photo)
+    params.require(:midget).permit(:name, :speciality, :price, :description, :city)
   end
 
   def set_midget

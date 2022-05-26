@@ -1,4 +1,30 @@
 
-<% @reservations.each do |reservation| %>
-  <li><%= reservation.start_date %> <%= reservation.total %>€</li>
-<% end %>
+
+<h1>Your reservations</h1>
+<div class="container">
+    <div class="row justify-content-around w-100">
+      <% @reservations.each do |reservation| %>
+        <div class="col-md-4">
+          <% midget = Midget.find(reservation.midget_id) %>
+          <div class="card" style="width: 18rem;">
+            <img src="https://fr.web.img6.acsta.net/pictures/20/03/02/15/47/5009987.jpg" class="card-img-top" alt="midget picture">
+            <div class="card-body">
+              <h5 class="card-title">Your reservation details</h5>
+              <p class="card-text"><%= midget.name %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">From: <%= reservation.start_date %> </li>
+              <li class="list-group-item">To: <%= reservation.end_date %></li>
+              <li class="list-group-item">Price per day: <%= reservation.price %>€</li>
+              <li class="list-group-item">Total: <%= reservation.total %>€</li>
+            </ul>
+            <div class="card-body">
+              <%= link_to 'Your midget bio', midget_path(midget) , class: "btn btn-success" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+
+</div>

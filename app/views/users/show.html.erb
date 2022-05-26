@@ -1,15 +1,27 @@
-<div class="container">
-    <img class="picture"src="https://www.w3schools.com/howto/img_avatar2.png" />
-  <div>
+
+<div>
+  <div class="m-5 col-5">
     <h2><p><%= @user.name %></p></h2>
-    <p>My email: <%= @user.email %> </p>
-    <p> My phone_number:<%= @user.phone_number %></p>
-    <p> My bio:<%= @user.description %></p>
+    <img class="picture"src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+    <p>My email: <%= @user.email %></p>
+    <p> My phone_number: <%= @user.phone_number %> </p>
+    <p> My bio: <%= @user.description %></p>
   </div>
 </div>
-  <div class="container d-flex m-3">
-    <img class="picture p-2" src="https://as2.ftcdn.net/v2/jpg/02/94/71/77/1000_F_294717727_rYbKZ0vmgOJuqtwdIv2ycB9qXUF6ooZV.jpg" alt="">
-    <img class="picture p-2" src="https://as2.ftcdn.net/v2/jpg/02/94/71/77/1000_F_294717727_rYbKZ0vmgOJuqtwdIv2ycB9qXUF6ooZV.jpg" alt="">
-    <img class="picture p-2" src="https://as2.ftcdn.net/v2/jpg/02/94/71/77/1000_F_294717727_rYbKZ0vmgOJuqtwdIv2ycB9qXUF6ooZV.jpg" alt="">
-    <img class="picture p-2" src="https://as2.ftcdn.net/v2/jpg/02/94/71/77/1000_F_294717727_rYbKZ0vmgOJuqtwdIv2ycB9qXUF6ooZV.jpg" alt="">
+  <h3>Your midgets</h3>
+<div class="midgets d-inline-flex">
+        <% Midget.where(user_id: current_user.id).each do |midget| %>
+          <div class="card-trip">
+            <img src="https://fr.web.img6.acsta.net/pictures/20/03/02/15/47/5009987.jpg" />
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= midget.name %></h2>
+                <p><%= midget.speciality %></p>
+              </div>
+              <h2 class="card-trip-pricing"><%= link_to midget.price, midget %></h2>
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+            </div>
+          </div>
+        <% end %>
   </div>
+</div>
