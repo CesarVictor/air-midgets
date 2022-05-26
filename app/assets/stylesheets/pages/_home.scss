@@ -1,8 +1,11 @@
 .banner {
+  height: 100vh;
   background-size: cover;
   background-position: center;
   padding: 150px 0;
   background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/dnh1x1ht7/image/upload/v1653571230/ljzdnaqgcwla2qcprw11.jpg);
+  align-items: center;
+  position: relative;
 }
 
 .banner h1 {
@@ -35,4 +38,11 @@
 
 #home-pustule:hover {
   background-color: #F24C4C;
+}
+
+
+.container {
+  position: absolute;
+  bottom: 50%;
+  left: 100px;
 }
