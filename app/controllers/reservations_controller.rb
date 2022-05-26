@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @midget = Midget.find(params[:reservation][:midget_id])
+    @midget = Midget.find(params[:midget_id])
     @reservation = Reservation.new(reservation_params)
     @reservation.price = @midget.price
     @reservation.total = @midget.price * ((@reservation.end_date - @reservation.start_date).to_i + 1)
@@ -22,7 +22,7 @@ class ReservationsController < ApplicationController
     authorize @reservation
     if @reservation.save!
 
-      redirect_to reservations_path
+      redirect_to midget_reservations_path(@midget)
     else
       render 'new'
     end
@@ -44,11 +44,12 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    @midget = Midget.find(params[:midget_id])
     authorize @reservation
     if @reservation.destroy
-      redirect_to reservations_path
+      redirect_to midget_reservations_path(@midget)
     else
-      redirect_to reservation_path(@reservation)
+      redirect_to midget_reservation_path(@reservation)
     end
   end
 

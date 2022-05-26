@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :midgets do
     resources :reviews, only: %i[new create edit update show index]
+    resources :reservations
   end
   delete 'review/:id', to: 'reviews#destroy'
-  resources :reservations
   resources :users
 end

@@ -11,8 +11,8 @@
           <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
       </div>
-      <% @midgets.each do |midget| %>
 
+      <% @midgets.each do |midget| %>
         <div class="col-12">
           <div class="card-product mx-5 my-3" style="position: relative;">
             <% if midget.photo.attached? %>
@@ -27,7 +27,7 @@
               <p class="text-center"><%= @midgets[0].price %>€/day</p>
               <%= link_to 'Details', midget_path(midget), class: "btn btn-primary mt-2" %>
             </div>
-            
+
           </div>
         </div>
       <% end %>
