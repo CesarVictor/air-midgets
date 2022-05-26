@@ -1,3 +1,14 @@
+<div>
+  <%= form_tag midgets_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a midget"
+    %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+</div>
+
 <div class="container">
   <div class="row">
     <div class="row row-cols-4">
