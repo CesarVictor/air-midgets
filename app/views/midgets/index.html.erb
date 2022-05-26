@@ -15,7 +15,9 @@
       <% @midgets.each do |midget| %>
         <div class="col-12 col-md-4">
           <div class="card-trip my-3">
+          <% if midget.photo.attached? %>
             <%= cl_image_tag midget.photo.key, height: 200, width: 200, crop: :fill %>
+          <% end %>
             <%= link_to midget_path(midget) do %>
               <div class="card-trip-infos">
                 <div>
@@ -23,7 +25,9 @@
                   <p><%= midget.speciality %></p>
                 </div>
                 <h2 class="card-trip-pricing"><%= midget.price %></h2>
+                <% if midget.user.photo.attached? %>
                 <%= cl_image_tag midget.user.photo.key, height: 50, width: 40, crop: :fill, class: "card-trip-user avatar-bordered" %>
+                <% end %>
               </div>
             <% end %>
           </div>

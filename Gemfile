@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'cloudinary', '~> 1.16.0'
 #pg search
 gem 'pg_search', '~> 2.3.0'
+# date simple form
+gem 'date_wrapper'
 
 
 gem "geocoder"
