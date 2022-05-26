@@ -3,8 +3,9 @@
 <div class="container">
   <%= render 'form', midget: @midget %>
 
-  <hr>
-  <%= link_to midgets_path do %>
-  <button type="button" class="btn btn-outline-secondary">Back to list</button>
+  <% if policy(Midget).create? %>
+    <%= link_to midgets_path do %>
+      <button type="button" class="btn btn-outline-secondary">Back to list</button>
+    <% end %>
   <% end %>
 </div>

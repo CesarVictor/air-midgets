@@ -20,11 +20,13 @@
             </ul>
             <div class="card-body">
               <%= link_to 'Your midget bio', midget_path(midget) , class: "btn btn-success" %>
+              <% if policy(reservation).destroy? %>
+                <%= link_to "Delete my reservation", reservation_path(reservation, midget), class:"btn btn-warning", method: :delete, data: { confirm: "Are you sure?"}  %>
+              <% end %>
             </div>
           </div>
         </div>
       <% end %>
 
     </div>
-
 </div>
