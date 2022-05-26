@@ -1,6 +1,6 @@
 <div class="container mt-5 d-flex justify-content-between align-items-center">
   <div class="main-image">
-    
+
    <% if @midget.photo.attached? %>
     <%= cl_image_tag @midget.photo.key, height: 400, width: 400, crop: :fill, class: "rounded" %>
    <% end %>
@@ -21,7 +21,7 @@
       <% if policy(@midget).destroy? %>
       <%= link_to "Remove", midget_path(@midget), method: :delete, data: { confirm: "Are you sure?"}  %>
       <% end %>
-        <%= link_to new_reservation_path(midget_id: @midget.id) do%>
+        <%= link_to new_midget_reservation_path(midget_id: @midget.id) do%>
         <button type="button" class="btn btn-outline-secondary">New reservation</button>
         <% end %>
 
