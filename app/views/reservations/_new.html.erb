@@ -6,14 +6,8 @@
           <%= simple_form_for [@midget, @reservation], method: :post do |f| %>
             <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
             <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-            <%= f.button :submit, "rent", class: "btn btn-warning" %>
+            <%= f.button :submit, "Rent", class: "btn btn-warning" %>
           <% end %>
       </div>
   </div>
 </div>
-
-  <p>Price per day: <%= @midget.price %>€</p>
-
-  <%= link_to midget_path(@midget.id) do %>
-  <button type="button" class="btn btn-outline-secondary">Back</button>
-  <% end %>
