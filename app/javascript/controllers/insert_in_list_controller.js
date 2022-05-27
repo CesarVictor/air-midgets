@@ -22,6 +22,11 @@ export default class extends Controller {
       .then((data) => {
         if (data.inserted_item) {
           this.itemsTarget.insertAdjacentHTML("afterbegin", data.inserted_item)
+          // console.dir(data)
+          // let htmlObject = document.createElement('div');
+          // htmlObject.innerHTML = data.inserted_item
+          // htmlObject.style.position = 'relative'
+          // htmlObject.style.transform = 'translateX(-100px)'
         }
         this.formTarget.outerHTML = data.form
       })
