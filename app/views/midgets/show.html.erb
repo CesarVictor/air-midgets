@@ -29,3 +29,24 @@
         <%= render partial: 'reservations/new', locals: { midget: @midget, reservation: @reservation } %>
     </div>
 </div>
+
+<h2>
+  <%= pluralize @midget.reviews.size, "review" %>
+</h2>
+
+<div id="reviews">
+  <% if @midget.reviews.blank? %>
+    Be the first to leave a review for <%= @midget.name %>
+  <% else %>
+    <% @midget.reviews.each do |review| %>
+      <p><%= review.content %></p>
+      <p><%= review.stars %> stars</p>
+    <% end %>
+  <% end %>
+</div>
+
+<%= simple_form_for([ @midget, @review ]) do |f| %>
+  <%= f.input :comment, as: :text %>
+  <%= f.input :stars, as: :integer %>
+  <%= f.button :submit %>
+<% end %>
