@@ -1,7 +1,7 @@
 
 <h1 class="m-5">My profile</h1>
 <div>
-  <div class="m-5 d-flex justify-content-between">
+  <div class="m-5 d-flex justify-content-around border border-dark text-center">
     <div>
       <h2><p><%= @user.name %></p></h2>
       <%= cl_image_tag @user.photo.key, height: 400, width: 600, crop: :fill, class: "rounded" %>
@@ -14,16 +14,17 @@
       <% current_user.reservations.each do |reservation| %>
         <% income += reservation.total %>
       <% end %>
-      <h6 class="mt-5">My future income: <%= income%>€</h6>
+      <h6 class="mt-5 fs-1">My future income: <%= income%>€</h6>
     </div>
   </div>
-</div>
-    <%= link_to new_midget_path do %>
-      <button type="button" class="btn btn-outline-warning btn-sm ms-5">Add a new midget</button>
-    <% end %>
-    <%= link_to midget_reservations_path(current_user.midgets) do %>
-      <button type="button" class="btn btn-outline-warning btn-sm ms-3">Check my reservations</button>
-    <% end %>
+  <div class="m-5 d-flex justify-content-around">
+      <%= link_to new_midget_path do %>
+        <button type="button" class="btn btn-outline-warning ms-5 btn-lg">Add a new midget</button>
+      <% end %>
+      <%= link_to midget_reservations_path(current_user.midgets) do %>
+        <button type="button" class="btn btn-outline-warning ms-3 btn-lg">Check my reservations</button>
+      <% end %>
+  </div>
 
 <h3 class="m-5">My midgets</h3>
 
