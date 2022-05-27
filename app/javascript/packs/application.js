@@ -10,10 +10,13 @@ import "channels"
 import { initFlatpickr } from "../plugins/flatpickr";
 require("flatpickr/dist/themes/confetti.css");
 
-initFlatpickr();
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+document.addEventListener('turbolinks:load', () => {
+  initFlatpickr();
+});
