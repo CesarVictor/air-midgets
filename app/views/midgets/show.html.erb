@@ -1,10 +1,10 @@
 <div id="back">
   <%= link_to midgets_path(@midget) do %>
-  <button type="button" class="btn btn-outline-wraning btn-sm"><i class="fa-solid fa-hand-point-left"></i></button>
+  <button type="button" class="btn btn-outline-warning btn-sm fs-4 mt-3"><i class="fa-solid fa-hand-point-left"></i></button>
   <% end %>
 </div>
 <div class="container mt-5 justify-content-center border p-2">
-  <div class="show d-flex justify-content-between">
+  <div class="show d-flex justify-content-between align-items-center">
     <div class="main-image">
       <% if @midget.photo.attached? %>
         <%= cl_image_tag @midget.photo.key, height: 400, width: 400, crop: :fill, class: "rounded" %>
@@ -12,11 +12,11 @@
     </div>
 
     <div class="description">
-      <h3 class="mb-3"><%= @midget.name %></h3>
+      <h1 class="mb-3"><%= @midget.name %></h1>
       <p class="mb-3">Speciality: <%= @midget.speciality %></p>
       <p class="mb-3">City: <%= @midget.city %></p>
       <p class="mb-3">Description: <%= @midget.description %></p>
-      <p class="mb-3">Tarif: <%= @midget.price %>€/jour</p>
+      <p class="mb-3">Price: <%= @midget.price %>€/day</p>
     </div>
     <div class="details">
       <%# <% if policy(@midget).destroy? %>
@@ -63,7 +63,7 @@
                           data: { insert_in_list_target: "form",
                                   action: "submit->insert-in-list#send" }) do |f| %>
         <%= f.input :comment, as: :text %>
-        <%= f.input :rating, as: :integer %>
+        <%= f.input :rating, collection: %w[1 2 3 4 5] %>
         <% if policy(Review).create? %>
         <%= f.submit class: 'btn btn-warning btn-sm' %>
         <% end %>
