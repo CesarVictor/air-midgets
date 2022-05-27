@@ -65,7 +65,7 @@
         <%= f.input :comment, as: :text %>
         <%= f.input :rating, as: :integer %>
         <% if policy(Review).create? %>
-        <%= f.button :submit %>
+        <%= f.submit class: 'btn btn-warning btn-sm' %>
         <% end %>
       <% end %>
     </div>

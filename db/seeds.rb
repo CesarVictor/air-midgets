@@ -34,3 +34,7 @@ midget.photo.attach(io: file, filename: 'MiniMe.png', content_type: 'image/png')
 file = URI.open('https://mvistatic.com/photosmvi/2021/03/20/P25403832D4547783G.jpg')
 midget = Midget.create!(name: 'Jojo', speciality: 'Ange gardien', price: '1200', description: "Ask my agent", city: 'Paris', user_id: User.last.id)
 midget.photo.attach(io: file, filename: 'jojo.png', content_type: 'image/png')
+
+file = URI.open('https://i.pinimg.com/originals/b6/1e/ee/b61eeef4fc0c95e0ec6f1e154a514393.jpg')
+midget = Midget.create!(name: 'KeMonito', speciality: 'Fighter', price: '1500', description: "Lucha Libre", city: 'Mexico', user_id: User.last.id)
+midget.photo.attach(io: file, filename: 'Kemonito.png', content_type: 'image/png')
