@@ -19,10 +19,10 @@
   </div>
 </div>
     <%= link_to new_midget_path do %>
-      <button type="button" class="btn btn-outline-secondary ms-5">Add a new midget</button>
+      <button type="button" class="btn btn-outline-warning btn-sm ms-5">Add a new midget</button>
     <% end %>
     <%= link_to midget_reservations_path(current_user.midgets) do %>
-      <button type="button" class="btn btn-outline-secondary ms-3">Check my reservations</button>
+      <button type="button" class="btn btn-outline-warning btn-sm ms-3">Check my reservations</button>
     <% end %>
 
 <h3 class="m-5">Your midgets</h3>
@@ -30,17 +30,16 @@
 <div class="midgets row justify-content-around">
   <% Midget.where(user_id: current_user.id).each do |midget| %>
     <div class="col-md-3 m-3">
-        <div class="card-trip" style="width: 18rem;">
-          <%= link_to midget_path(midget.id) do%>
-            <%= cl_image_tag midget.photo.key, height: 200, width:300, crop: :fill, class: "text-center" %>
-          <% end %>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= midget.name %></h2>
-                <p><%= midget.speciality %></p>
-              </div>
-              <%= link_to 'Fire', midget_path(midget.id), method: :delete, class: "btn btn-outline-danger" %>
-            </div>
+
+      <div class="card-trip bg-secondary" style="width: 18rem;">
+        <%= cl_image_tag midget.photo.key, height: 200, width: 200, crop: :fill, class: "text-center" %>
+        <div class="card-trip-infos bg-secondary text-white">
+          <div>
+            <h2 class="text-white"><%= midget.name %></h2>
+            <p><%= midget.speciality %></p>
+          </div>
+          <%= link_to 'Fire', midget_path(midget.id), method: :delete, class: "btn btn-danger btn-sm" %>
+
         </div>
     </div>
   <% end %>
