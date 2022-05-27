@@ -1,0 +1,13 @@
+.profilepic {
+  width: 500px;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px grey;
+  margin-bottom: 16px;
+
+  &:hover {
+    box-shadow: 5px 5px 5px grey;
+    transform: scale(1.05)
+  }
+}
