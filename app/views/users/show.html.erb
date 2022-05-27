@@ -1,7 +1,7 @@
 
 <h1 class="m-5">My profile</h1>
 <div>
-  <div class="m-5 d-flex justify-content-between">
+  <div class="m-5 d-flex justify-content-around border border-dark text-center">
     <div>
       <h2><p><%= @user.name %></p></h2>
       <%= cl_image_tag @user.photo.key, height: 400, width: 600, crop: :fill, class: "rounded" %>
@@ -18,20 +18,23 @@
           <% income -= reservation.total %>
         <% end %>
       <% end %>
+
       <% if income.negative? %>
       <h6 class="mt-5">My next bill: <%= income * (-1)%>€</h6>
       <% else %>
       <h6 class="mt-5">My future income: <%= income%>€</h6>
       <% end %>
+
     </div>
   </div>
-</div>
-    <%= link_to new_midget_path do %>
-      <button type="button" class="btn btn-outline-warning btn-sm ms-5">Add a new midget</button>
-    <% end %>
-    <%= link_to midget_reservations_path(current_user.midgets) do %>
-      <button type="button" class="btn btn-outline-warning btn-sm ms-3">Check my reservations</button>
-    <% end %>
+  <div class="m-5 d-flex justify-content-around">
+      <%= link_to new_midget_path do %>
+        <button type="button" class="btn btn-outline-warning ms-5 btn-lg">Add a new midget</button>
+      <% end %>
+      <%= link_to midget_reservations_path(current_user.midgets) do %>
+        <button type="button" class="btn btn-outline-warning ms-3 btn-lg">Check my reservations</button>
+      <% end %>
+  </div>
 
 <h3 class="m-5">My midgets</h3>
 
@@ -40,7 +43,11 @@
     <div class="col-md-3 m-3">
       <div class="card-trip" style="width: 18rem;">
           <%= link_to midget_path(midget.id) do%>
+          <% if midget.photo.attached? %>
             <%= cl_image_tag midget.photo.key, height: 200, width:300, crop: :fill, class: "text-center" %>
+            <% else %>
+                <%= image_tag("https://external-preview.redd.it/OIAYkDODky3CO_DQoMOjmsZYdC8F-Qp9BMxfGoSq5mU.jpg?width=640&crop=smart&auto=webp&s=1492926e840c19c8a91f767a32a00e9112586768", size: "300x200") %>
+              <% end %>
           <% end %>
             <div class="card-trip-infos bg-secondary text-white">
               <div>
