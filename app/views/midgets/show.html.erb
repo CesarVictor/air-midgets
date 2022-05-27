@@ -26,3 +26,49 @@
     </div>
   </div>
 </div>
+
+
+
+<div data-controller="insert-in-list" class="m-5 border-top pt-3">
+
+  <div class="row d-flex">
+
+    <div id="reviews" data-insert-in-list-target="items" class="col-12 col-md-8 p-3">
+      <h3 class="mb-3">
+        <%= pluralize @midget.reviews.size, "review" %>
+      </h3>
+      <% if @midget.reviews.blank? %>
+        Be the first to leave a review for <%= @midget.name %>
+      <% else %>
+        <% @midget.reviews.each do |review| %>
+          <div class="ms-2 mb-3 align-items-center border-bottom">
+            <div>
+              <% review.rating.times do %>
+                <i class="fa-solid fa-star" style= "color: gold;"></i>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <i class="fa-solid fa-star"  style= "color: gray;"></i>
+              <% end %>
+            </div>
+            <div  class="m-2">
+              <p id="review-<%= review.id %>">  <%= current_user.name %>: <%= review.comment %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="col-12 col-md-4 p-3">
+      <%= simple_form_for([ @midget, @review ],
+                          data: { insert_in_list_target: "form",
+                                  action: "submit->insert-in-list#send" }) do |f| %>
+        <%= f.input :comment, as: :text %>
+        <%= f.input :rating, as: :integer %>
+        <% if policy(Review).create? %>
+        <%= f.button :submit %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

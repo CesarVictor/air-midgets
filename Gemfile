@@ -31,7 +31,11 @@ gem "geocoder"
 
 gem 'devise'
 
+
+gem "turbolinks_render"
+
 gem 'dotenv-rails', groups: [:development, :test]
+
 
 
 

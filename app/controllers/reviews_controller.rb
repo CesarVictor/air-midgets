@@ -1,45 +1,23 @@
 class ReviewsController < ApplicationController
-  def index
-    @reviews = Review.all
-  end
-
-  def show
-    @review = Review.find(params[:id])
-  end
-
-  def new
-    @review = Review.new
-  end
-
   def create
-    @review = Review.new(reviews_params)
-    if @review.save
-      redirect_to @review
-    else
-      render 'new'
+    @midget = Midget.find(params[:midget_id])
+    @review = Review.new(review_params)
+    @review.midget = @midget
+    authorize @review
+    respond_to do |format|
+      if @review.save
+        format.html { redirect_to midget_path(@midget) }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      else
+        format.html { render "midgets/show" }
+        format.json # Follow the classic Rails flow and look for a create.json view
+      end
     end
-  end
-
-  def edit
-    @review = Review.find(params[:id])
-  end
-
-  def update
-    @review = Review.find(params[:id])
-    @review.update(reviews_params)
-    redirect_to review_path(@review)
-  end
-
-  def destroy
-    @review = Review.find(params[:id])
-    @review.destroy
-
-    redirect_to reviews_path
   end
 
   private
 
-  def reviews_params
-    params.require(:review).permit(:rating, :comment)
+  def review_params
+    params.require(:review).permit(:comment, :rating)
   end
 end
