@@ -12,9 +12,17 @@
       <p class="mt-3"> My bio: <%= @user.description %></p>
       <% income = 0 %>
       <% current_user.reservations.each do |reservation| %>
-        <% income += reservation.total %>
+        <% if Midget.find(reservation.midget_id).user_id == current_user.id %>
+          <% income += reservation.total %>
+        <% else %>
+          <% income -= reservation.total %>
+        <% end %>
       <% end %>
+      <% if income.negative? %>
+      <h6 class="mt-5">My next bill: <%= income * (-1)%>€</h6>
+      <% else %>
       <h6 class="mt-5">My future income: <%= income%>€</h6>
+      <% end %>
     </div>
   </div>
 </div>
