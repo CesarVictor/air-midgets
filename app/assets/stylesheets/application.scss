@@ -12,3 +12,13 @@
 // Your CSS partials/home/cesarvictor/code/CesarVictor/air-midgets/app/assets/stylesheets/config
 @import "components/index";
 @import "pages/index";
+
+p.transition {
+  animation: appear 2s;
+}
+
+@keyframes appear {
+  from {
+    transform: translateX(-100%);
+  }
+}

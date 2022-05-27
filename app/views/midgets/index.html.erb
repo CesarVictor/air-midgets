@@ -26,11 +26,11 @@
              <% end %>
             <div class="card-product-infos">
               <h2><%= midget.name %></h2>
-              <p>Speciality: <%= @midgets[0].speciality %></p>
+              <p>Speciality: <%= midget.speciality %></p>
               <p><%= midget.description %></p>
             </div>
             <div style="position: absolute; right: 20px">
-              <p class="text-center"><%= @midgets[0].price %>€/day</p>
+              <p class="text-center"><%= midget.price %>€/day</p>
               <%= link_to 'Details', midget_path(midget), class: "btn btn-warning btn-sm mt-2" %>
             </div>
 
