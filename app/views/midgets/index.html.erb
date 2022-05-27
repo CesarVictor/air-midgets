@@ -1,4 +1,10 @@
-  <div class="row mx-5">
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <link rel="stylesheet" href="https://pattern.kivan-works.com/fonts/kredit.css">
+</head>
+
+ <div class="row mx-5">
     <div class="col-12 col-md-7">
     <div class="row">
       <div class="mt-5 mb-3 text-center ms-5 w-75">
@@ -8,13 +14,13 @@
             class: "form-control",
             placeholder: "Find a midget"
           %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btn btn-warning btn-lg" %>
         <% end %>
       </div>
 
       <% @midgets.each do |midget| %>
         <div class="col-12">
-          <div class="card-product mx-5 my-3" style="position: relative;">
+          <div class="card-product bg-secondary mx-5 my-3" style="position: relative;">
             <% if midget.photo.attached? %>
             <%= cl_image_tag midget.photo.key, height: 200, width: 200, crop: :fill %>
              <% end %>
@@ -25,7 +31,7 @@
             </div>
             <div style="position: absolute; right: 20px">
               <p class="text-center"><%= @midgets[0].price %>€/day</p>
-              <%= link_to 'Details', midget_path(midget), class: "btn btn-primary mt-2" %>
+              <%= link_to 'Details', midget_path(midget), class: "btn btn-warning btn-sm mt-2" %>
             </div>
 
           </div>

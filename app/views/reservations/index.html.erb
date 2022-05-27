@@ -1,14 +1,13 @@
-
-
 <h1>Your reservations</h1>
 <div class="container">
     <div class="row justify-content-around w-100">
       <% @reservations.each do |reservation| %>
         <div class="col-md-4">
           <% midget = Midget.find(reservation.midget_id) %>
-          <div class="card" style="width: 18rem;">
+          
+          <div class="card " style="width: 18rem;">
             <%= cl_image_tag midget.photo.key, height: 250, width: 250, crop: :fill, style: "width: 100%;" %>
-            <div class="card-body">
+            <div class="card-body bg-secondary text-white">
               <h5 class="card-title">Your reservation details</h5>
               <p class="card-text"><%= midget.name %></p>
             </div>
@@ -18,10 +17,10 @@
               <li class="list-group-item">Price per day: <%= reservation.price %>€</li>
               <li class="list-group-item">Total: <%= reservation.total %>€</li>
             </ul>
-            <div class="card-body">
-              <%= link_to 'Your midget bio', midget_path(midget) , class: "btn btn-success" %>
+            <div class="card-body bg-secondary text-white">
+              <%= link_to 'Your midget bio', midget_path(midget) , class: "btn btn-warning btn-sm mb-3" %>
               <% if policy(reservation).destroy? %>
-                <%= link_to "Delete my reservation", midget_reservation_path(midget, reservation), class:"btn btn-warning", method: :delete, data: { confirm: "Are you sure?"}  %>
+                <%= link_to "Delete my reservation", midget_reservation_path(midget, reservation), class:"btn btn-danger btn-sm", method: :delete, data: { confirm: "Are you sure?"}  %>
               <% end %>
             </div>
           </div>
