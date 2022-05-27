@@ -33,7 +33,11 @@
     <div class="col-md-3 m-3">
       <div class="card-trip" style="width: 18rem;">
           <%= link_to midget_path(midget.id) do%>
+          <% if midget.photo.attached? %>
             <%= cl_image_tag midget.photo.key, height: 200, width:300, crop: :fill, class: "text-center" %>
+            <% else %>
+                <%= image_tag("https://external-preview.redd.it/OIAYkDODky3CO_DQoMOjmsZYdC8F-Qp9BMxfGoSq5mU.jpg?width=640&crop=smart&auto=webp&s=1492926e840c19c8a91f767a32a00e9112586768", size: "300x200") %>
+              <% end %>
           <% end %>
             <div class="card-trip-infos bg-secondary text-white">
               <div>

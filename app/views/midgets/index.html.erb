@@ -22,8 +22,10 @@
         <div class="col-12">
           <div class="card-product bg-secondary mx-5 my-3" style="position: relative;">
             <% if midget.photo.attached? %>
-            <%= cl_image_tag midget.photo.key, height: 200, width: 200, crop: :fill %>
-             <% end %>
+              <%= cl_image_tag midget.photo.key, height: 200, width: 200, crop: :fill %>
+            <% else %>
+              <%= image_tag("https://external-preview.redd.it/OIAYkDODky3CO_DQoMOjmsZYdC8F-Qp9BMxfGoSq5mU.jpg?width=640&crop=smart&auto=webp&s=1492926e840c19c8a91f767a32a00e9112586768", size: "300x200") %>
+            <% end %>
             <div class="card-product-infos">
               <h2><%= midget.name %></h2>
               <p>Speciality: <%= midget.speciality %></p>
