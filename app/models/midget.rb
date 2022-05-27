@@ -10,7 +10,8 @@ class Midget < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_by_name_and_speciality,
-    against:[ :name, :speciality],
+    against:[ :name,
+              :speciality],
     using: {
       tsearch: { prefix: true }
     }

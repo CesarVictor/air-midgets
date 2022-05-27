@@ -1,3 +1,11 @@
-
-<p id="review-<%= review.id %>"><%= review.comment %></p>
-        <p><%= review.rating %> stars</p>
+<div class="d-flex">
+<div class="m-2">
+  <% review.rating.times do %>
+    <i class="fa-solid fa-star" style="color: gold;"></i>
+  <% end %>
+  <% (5 - review.rating).times do %>
+    <i class="fa-solid fa-star" style= "color: gray;"></i>
+  <% end %>
+</div>
+  <p id="review-<%= review.id %>" class="m-2">  <%= current_user.name %>:   <%= review.comment %></p>
+</div>
