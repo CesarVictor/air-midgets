@@ -31,6 +31,7 @@ gem "geocoder"
 
 gem 'devise'
 
+gem "turbolinks_render"
 
 
 
