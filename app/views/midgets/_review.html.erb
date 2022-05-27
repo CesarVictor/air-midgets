@@ -1,5 +1,5 @@
-<div class="d-flex">
-<div class="m-2">
+<div class="ms-2 mb-3 align-items-center border-bottom">
+<div class="mb-3">
   <% review.rating.times do %>
     <i class="fa-solid fa-star" style="color: gold;"></i>
   <% end %>
@@ -7,5 +7,5 @@
     <i class="fa-solid fa-star" style= "color: gray;"></i>
   <% end %>
 </div>
-  <p id="review-<%= review.id %>" class="m-2">  <%= current_user.name %>:   <%= review.comment %></p>
+  <p id="review-<%= review.id %>" class="m-3">  <%= current_user.name %>:   <%= review.comment %></p>
 </div>

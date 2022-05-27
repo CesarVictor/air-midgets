@@ -32,11 +32,11 @@
 <div data-controller="insert-in-list" class="m-5 border-top pt-3">
 
   <div class="row d-flex">
-
-    <div id="reviews" data-insert-in-list-target="items" class="col-12 col-md-8 p-3">
       <h3 class="mb-3">
         <%= pluralize @midget.reviews.size, "review" %>
       </h3>
+
+    <div id="reviews" data-insert-in-list-target="items" class="col-12 col-md-8 p-3">
       <% if @midget.reviews.blank? %>
         Be the first to leave a review for <%= @midget.name %>
       <% else %>
