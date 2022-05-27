@@ -30,6 +30,7 @@
 <div class="midgets row justify-content-around">
   <% Midget.where(user_id: current_user.id).each do |midget| %>
     <div class="col-md-3 m-3">
+
       <div class="card-trip bg-secondary" style="width: 18rem;">
         <%= cl_image_tag midget.photo.key, height: 200, width: 200, crop: :fill, class: "text-center" %>
         <div class="card-trip-infos bg-secondary text-white">
@@ -38,8 +39,8 @@
             <p><%= midget.speciality %></p>
           </div>
           <%= link_to 'Fire', midget_path(midget.id), method: :delete, class: "btn btn-danger btn-sm" %>
+
         </div>
-      </div>
     </div>
   <% end %>
 </div>
