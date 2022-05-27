@@ -1,10 +1,10 @@
-<div class="card-product card-windw">
-<% if midget.photo.attached? %>
-  <%= cl_image_tag midget.photo.key, height: 300, width: 300, crop: :fill %>
-<% end %>
-  <div class="card-product-infos">
-    <h2><%= midget.name %></h2>
-    <p><%= midget.description %></p>
-    <%= link_to 'More infos', midget_path(midget), class: "btn btn-primary mt-2" %>
-  </div>
+<div class="card-product card-windw align-items-center">
+   <% if midget.photo.attached? %>
+     <%= cl_image_tag midget.photo.key, height: 200, width: 200, crop: :fill %>
+   <% end %>
+     <div class="card-product-infos">
+       <h2><%= midget.name %></h2>
+       <p><%= midget.description %></p>
+       <%= link_to 'More infos', midget_path(midget), class: "btn btn-primary mb-4" %>
+     </div>
 </div>
